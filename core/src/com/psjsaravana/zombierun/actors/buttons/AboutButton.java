@@ -1,22 +1,20 @@
 package com.psjsaravana.zombierun.actors.buttons;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 /**
- * Created by subramas on 10/20/16.
+ * Created by subramas on 10/21/16.
  */
-public class PlayButton extends Actor {
+public class AboutButton {
     private TextureAtlas buttonsAtlas;
     private Skin buttonSkin;
-    public TextButton playBtn;
+    public TextButton aboutBtn;
     private BitmapFont font;
 
-    public  PlayButton() {
+    public  AboutButton() {
         buttonsAtlas = new TextureAtlas("buttons.pack");
         buttonSkin = new Skin();
         buttonSkin.addRegions(buttonsAtlas);
@@ -27,10 +25,10 @@ public class PlayButton extends Actor {
         style.down = buttonSkin.getDrawable("playHover");
         style.font = font;
 
-        playBtn = new TextButton("", style);
-        playBtn.setPosition(100,100);
-        playBtn.setWidth(100);
-        playBtn.setHeight(100);
+        aboutBtn = new TextButton("", style);
+        aboutBtn.setPosition(700,100);
+        aboutBtn.setWidth(100);
+        aboutBtn.setHeight(100);
     }
 
 }

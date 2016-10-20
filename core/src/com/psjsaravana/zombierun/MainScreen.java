@@ -14,16 +14,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.psjsaravana.zombierun.actors.buttons.AboutButton;
+import com.psjsaravana.zombierun.actors.buttons.GPlayButton;
 import com.psjsaravana.zombierun.actors.buttons.PlayButton;
+import com.psjsaravana.zombierun.actors.buttons.RatingButton;
 
 /**
  * Created by subramas on 9/29/16.
  */
 public class MainScreen implements Screen {
-    private final TextureAtlas buttonsAtlas;
-    private final Skin buttonSkin;
-    private final TextButton playBtn;
     PlayButton playButton;
+    RatingButton ratingButton;
+    GPlayButton gPlayButton;
+    AboutButton aboutButton;
     private Stage stage;
     private BitmapFont font;
     SpriteBatch batch;
@@ -43,25 +46,14 @@ public class MainScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         batch = new SpriteBatch();
         playButton = new PlayButton();
+        ratingButton = new RatingButton();
+        gPlayButton = new GPlayButton();
+        aboutButton = new AboutButton();
 
-        walkSheet = new  Texture(Gdx.files.internal("zombie.png"));
-        buttonsAtlas = new TextureAtlas("buttons.pack");
-        buttonSkin = new Skin();
-        buttonSkin.addRegions(buttonsAtlas);
-        font = new BitmapFont();
-
-        TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
-        style.up = buttonSkin.getDrawable("playNormal");
-        style.down = buttonSkin.getDrawable("playHover");
-
-        style.font = font;
-
-        playBtn = new TextButton("", style);
-        playBtn.setPosition(300,300);
-        playBtn.setWidth(100);
-        playBtn.setHeight(100);
-        stage.addActor(playBtn);
-        stage.addActor(playButton);
+        stage.addActor(playButton.playBtn);
+        stage.addActor(ratingButton.ratingBtn);
+        stage.addActor(gPlayButton.gplayBtn);
+        stage.addActor(aboutButton.aboutBtn);
         //TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth()/8, walkSheet.getHeight()/1);
         //walkFrames = new TextureRegion[8 * 1];
         //int index = 0;
