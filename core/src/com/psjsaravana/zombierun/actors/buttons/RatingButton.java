@@ -2,6 +2,7 @@ package com.psjsaravana.zombierun.actors.buttons;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
@@ -15,7 +16,7 @@ public class RatingButton {
     public TextButton ratingBtn;
     private BitmapFont font;
 
-    public  RatingButton() {
+    public  RatingButton(Stage stage) {
         buttonsAtlas = new TextureAtlas("buttons.pack");
         buttonSkin = new Skin();
         buttonSkin.addRegions(buttonsAtlas);
@@ -27,7 +28,7 @@ public class RatingButton {
         style.font = font;
 
         ratingBtn = new TextButton("", style);
-        ratingBtn.setPosition(300,100);
+        ratingBtn.setPosition(((stage.getCamera().viewportWidth/5)*2)-(ratingBtn.getWidth()/2),stage.getCamera().viewportHeight/5);
         ratingBtn.setWidth(100);
         ratingBtn.setHeight(100);
     }

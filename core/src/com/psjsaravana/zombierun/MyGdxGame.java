@@ -1,17 +1,15 @@
 package com.psjsaravana.zombierun;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.psjsaravana.zombierun.screens.MainScreen;
+import com.psjsaravana.zombierun.utils.AppManager;
 
 public class MyGdxGame extends Game {
 
 	@Override
 	public void create() {
+		new AppManager().setGameInstance(this);
 		setScreen(new MainScreen(this));
 	}
+
 }

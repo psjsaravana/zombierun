@@ -1,4 +1,4 @@
-package com.psjsaravana.zombierun;
+package com.psjsaravana.zombierun.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.psjsaravana.zombierun.MyGdxGame;
 import com.psjsaravana.zombierun.actors.buttons.AboutButton;
 import com.psjsaravana.zombierun.actors.buttons.GPlayButton;
 import com.psjsaravana.zombierun.actors.buttons.PlayButton;
@@ -39,17 +40,23 @@ public class MainScreen implements Screen {
     OrthographicCamera camera;
     int srcXBuilding,srcXGround;
 
-    MainScreen(MyGdxGame myGdxGame) {
+    public MainScreen(MyGdxGame myGdxGame) {
         myGame = myGdxGame;
         stage = new Stage();
         stage.clear();
         Gdx.input.setInputProcessor(stage);
         batch = new SpriteBatch();
-        playButton = new PlayButton();
-        ratingButton = new RatingButton();
-        gPlayButton = new GPlayButton();
-        aboutButton = new AboutButton();
-
+        playButton = new PlayButton(stage);
+        ratingButton = new RatingButton(stage);
+        gPlayButton = new GPlayButton(stage);
+        aboutButton = new AboutButton(stage);
+        Gdx.app.log("viewport width/5",""+(stage.getCamera().viewportWidth/5));
+        Gdx.app.log("viewport width/4",""+(((stage.getCamera().viewportWidth/5)*4)-(ratingButton.ratingBtn.getWidth()/2)));
+        Gdx.app.log("viewport width/3",""+(((stage.getCamera().viewportWidth/5)*3)-(ratingButton.ratingBtn.getWidth()/2)));
+        Gdx.app.log("viewport width/2",""+(((stage.getCamera().viewportWidth/5)*2)-(ratingButton.ratingBtn.getWidth()/2)));
+        Gdx.app.log("viewport width/1",""+(((stage.getCamera().viewportWidth/5)*1)-(ratingButton.ratingBtn.getWidth()/2)));
+        Gdx.app.log("viewport width",""+stage.getCamera().viewportWidth);
+        Gdx.app.log("btn width",""+ratingButton.ratingBtn.getWidth());
         stage.addActor(playButton.playBtn);
         stage.addActor(ratingButton.ratingBtn);
         stage.addActor(gPlayButton.gplayBtn);
@@ -83,7 +90,7 @@ public class MainScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0.61f, 1.6f, 1);
+        Gdx.gl.glClearColor(0, 0.1f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //stateTime += Gdx.graphics.getDeltaTime();
         //currentFrame = walkAnimation.getKeyFrame(stateTime, true);

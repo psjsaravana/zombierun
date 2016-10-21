@@ -1,4 +1,4 @@
-package com.psjsaravana.zombierun;
+package com.psjsaravana.zombierun.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.psjsaravana.zombierun.MyGdxGame;
+import com.psjsaravana.zombierun.screens.MainScreen;
 
 /**
  * Created by subramas on 9/29/16.
